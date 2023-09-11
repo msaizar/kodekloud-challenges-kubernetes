@@ -1,0 +1,27 @@
+apiVersion: v1
+clusters:
+  - cluster:
+      certificate-authority-data: ...g==
+      server: https://controlplane:6443
+    name: kubernetes
+contexts:
+  - context:
+      cluster: kubernetes
+      user: kubernetes-admin
+    name: kubernetes-admin@kubernetes
+  - context:
+      cluster: kubernetes
+      user: martin
+    name: developer
+current-context: developer
+kind: Config
+preferences: {}
+users:
+  - name: martin
+    user:
+      client-certificate: /root/martin.crt
+      client-key: /root/martin.key
+  - name: kubernetes-admin
+    user:
+      client-certificate-data: ..g==
+      client-key-data: ..g=
